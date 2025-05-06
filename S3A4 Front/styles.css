@@ -1,0 +1,99 @@
+/* Layout Base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-areas:
+        "menu cabecalho"
+        "menu principal";
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
+}
+
+/* Menu Lateral */
+.menu-lateral {
+    grid-area: menu;
+    background-color: #f0f0f0;
+    padding: 15px;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    margin: 10px 0;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    grid-area: cabecalho;
+    background: linear-gradient(90deg, #007bff, #00d084);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botão com Transição */
+.btn-animate {
+    background-color: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-animate:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Conteúdo Principal */
+.principal {
+    grid-area: principal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+.content-box {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Animação */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "cabecalho"
+            "principal";
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
